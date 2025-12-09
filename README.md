@@ -29,3 +29,4 @@ It replaces manual work with code, reduces human errors, and allows teams to bui
       - Uses YAML / JSON – often more verbose and complex.
       - State is managed internally by AWS (no state file needed).
       - Supports nested stacks, less flexible than Terraform modules.
+      
