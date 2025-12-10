@@ -35,7 +35,7 @@ wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/sh
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install terraform
 ```
-Here are **Terraform block types** explained in **simple, interview-ready language**:
+## Terraform block types:
 
 ![Image](https://media2.dev.to/dynamic/image/width%3D800%2Cheight%3D%2Cfit%3Dscale-down%2Cgravity%3Dauto%2Cformat%3Dauto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F32dp7v0od58x78hsyrhi.jpeg?utm_source=chatgpt.com)
 
