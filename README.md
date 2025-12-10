@@ -35,4 +35,141 @@ wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/sh
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install terraform
 ```
-      
+Here are **Terraform block types** explained in **simple, interview-ready language**:
+
+![Image](https://media2.dev.to/dynamic/image/width%3D800%2Cheight%3D%2Cfit%3Dscale-down%2Cgravity%3Dauto%2Cformat%3Dauto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F32dp7v0od58x78hsyrhi.jpeg?utm_source=chatgpt.com)
+
+![Image](https://miro.medium.com/0%2AwwmllWIGPoYEvm7u.jpg?utm_source=chatgpt.com)
+
+---
+
+# ✅ **Main Block Types in Terraform**
+
+## **1. `terraform {}` block**
+
+This block is used to define Terraform-level settings.
+
+### **Purpose**
+
+* Set Terraform version
+* Define backend for storing state
+* Enable/disable experimental features
+
+### **Example**
+
+```hcl
+terraform {
+  required_version = ">= 1.5.0"
+}
+```
+
+---
+
+## **2. `provider {}` block**
+
+Used to configure cloud/service providers (AWS, Azure, GCP, etc).
+
+### **Example**
+
+```hcl
+provider "aws" {
+  region = "ap-south-1"
+}
+```
+
+---
+
+## **3. `resource {}` block**
+
+This is the **most important** block.
+Used to create actual infrastructure (EC2, VPC, S3, etc).
+
+### **Example**
+
+```hcl
+resource "aws_instance" "myvm" {
+  ami           = "ami-0abcd"
+  instance_type = "t2.micro"
+}
+```
+
+---
+
+## **4. `data {}` block**
+
+Used for **reading** existing infrastructure (not creating).
+
+### **Example**
+
+```hcl
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  owners      = ["amazon"]
+}
+```
+
+---
+
+## **5. `variable {}` block**
+
+Used to take input values from users.
+
+### **Example**
+
+```hcl
+variable "instance_type" {
+  type    = string
+  default = "t2.micro"
+}
+```
+
+---
+
+## **6. `output {}` block**
+
+Used to show values after `terraform apply`.
+
+### **Example**
+
+```hcl
+output "public_ip" {
+  value = aws_instance.myvm.public_ip
+}
+```
+
+---
+
+## **7. `locals {}` block**
+
+Used to define local variables only used inside the configuration.
+
+### **Example**
+
+```hcl
+locals {
+  env = "dev"
+}
+```
+
+---
+
+## **8. `module {}` block**
+
+Used to reuse Terraform code.
+
+### **Example**
+
+```hcl
+module "vpc" {
+  source = "./vpc-module"
+}
+```
+
+# 🎯 **Interview-Ready One-Line Answer**
+
+**Terraform has several block types like `terraform`, `provider`, `resource`, `data`, `variable`, `output`, `locals`, and `module`.
+`resource` creates infrastructure, `provider` connects to cloud,
+`variable` takes input, `output` shows results, `data` reads existing resources, `module` reuses code.**
+
+---
+
