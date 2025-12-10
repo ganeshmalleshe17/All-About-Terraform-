@@ -230,4 +230,16 @@ Used to clean up and remove all infrastructure created by Terraform.
 # 🎯 **Simple Interview Answer**
 
 “Terraform workflow is: write the code, run `terraform init` to initialize, run `terraform plan` to preview changes, run `terraform apply` to create resources, and `terraform destroy` to remove everything. This is the standard Terraform lifecycle.”
-
+# Creating a file on local using HCL
+```hcl
+resource local_file my-file{
+  filename = "automate.txt"
+  content = "My first hcl file"
+```
+## run the commands in terminal after creating hcl file
+```bash
+terraform init
+terraform validate
+terraform plan
+terraform apply
+```
