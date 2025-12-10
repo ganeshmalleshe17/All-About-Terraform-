@@ -172,4 +172,62 @@ module "vpc" {
 `variable` takes input, `output` shows results, `data` reads existing resources, `module` reuses code.**
 
 ---
+Here is a **perfect interview-ready answer** for **Terraform Workflow** — short, clear, and easy to remember.
+
+![Image](https://www.devopsschool.com/blog/wp-content/uploads/2023/04/terraform-workflow-1-1024x512.jpg?utm_source=chatgpt.com)
+
+![Image](https://www.devopsschool.com/blog/wp-content/uploads/2021/07/terraform-architecture-components-workflow-1-768x333.jpg?utm_source=chatgpt.com)
+
+---
+
+## Terraform Workflow
+
+**Terraform follows a simple 4-step workflow: Write → Init → Plan → Apply → Destroy.**
+
+### **1. Write**
+
+You write your infrastructure code in `.tf` files using HCL.
+Example: resources, providers, variables.
+
+---
+
+### **2. Initialize (`terraform init`)**
+
+This command initializes the working directory:
+
+* Downloads provider plugins (AWS/Azure/GCP)
+* Sets up backend (if configured)
+
+**Init is done only once per project (or when providers change).**
+
+---
+
+### **3. Plan (`terraform plan`)**
+
+Terraform shows an execution plan:
+
+* What will be created
+* What will be modified
+* What will be destroyed
+
+**Plan is only a preview. Nothing actually changes yet.**
+
+---
+
+### **4. Apply (`terraform apply`)**
+
+Terraform executes the plan and provisions the infrastructure.
+**This step actually creates, updates, or deletes resources.**
+
+---
+
+### **5. Destroy (`terraform destroy`)**
+
+Used to clean up and remove all infrastructure created by Terraform.
+
+---
+
+# 🎯 **Simple Interview Answer**
+
+“Terraform workflow is: write the code, run `terraform init` to initialize, run `terraform plan` to preview changes, run `terraform apply` to create resources, and `terraform destroy` to remove everything. This is the standard Terraform lifecycle.”
 
