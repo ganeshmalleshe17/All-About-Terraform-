@@ -243,4 +243,5 @@ terraform validate
 terraform plan
 terraform apply
 terraform apply -auto-approve   ##terraform apply -auto-approve is used to apply the Terraform changes without asking for manual confirmation.
+terraform destroy ## ton delete created resources
 ```
